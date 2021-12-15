@@ -41,12 +41,16 @@ if (!userLength) {
   return;
 }
   else if (
-  (userLength<8 && userLength>128) 
+  (userLength<8 || userLength>128) 
 ) {console.log(userLength);
   alert("Number must be between 8 and 128.  To try again, select 'Ok' and re-select the 'Generate Password' button");
-    return;
-}
-  else {
+  
+} else if (
+  (!userLength)
+  ) {console.log(userLength);
+    alert("Please enter a valid number must be between 8 and 128.  To try again, select 'Ok' and re-select the 'Generate Password' button");
+      return;
+  } else {
   console.log(userLength);
   alert("Your password is set to " + userLength + " characters.  Next, please select at least ONE of the four available character types.");
   var lowercase = confirm("Include lowercase?");
@@ -62,7 +66,7 @@ if (!userLength) {
 if (
     (!lowercase && !uppercase && !numbers && !specialChar) 
  ) {
-    alert("Sorry, we are unable to generate your password at this time.  At least ONE charater type must be selected. To try again, select 'Ok' and re-select the 'Generate Password' button");
+    alert("Sorry, we are unable to generate your password:  At least ONE charater type must be selected. To try again, select 'Ok' and re-select the 'Generate Password' button.");
   }
   if (lowercase) {
     pwordCriteria.push(lowerOptions);
