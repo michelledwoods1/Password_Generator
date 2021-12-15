@@ -1,22 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-// var userLength = window.prompt("Choose your password length (betwen 8 and 128", "Enter number");
-// var userChars = window.prompt("Choose your character types (must select at least 1 type):");
-
-
-var Length = []
-
-const range = (min,max) => []
-// if (userLength.includes (!== ) {
-//   alert("please enter a valid length");
-// } else {
-//   console.log(length);
-
-//   // Adds text content to created tag
-//   tag.textContent = "This was made via prompts. It's a " + tagName + ".";
-
-
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
@@ -25,77 +9,75 @@ function writePassword() {
   passwordText.value = password;
 
 }
-function 
-
-
-
-
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-// generatePassword ()
-
-///my code below
-/*
-var length = window.prompt("Choose a length betwen 8 and 128");
-var characters = window.prompt("Choose your character typesa length betwen 8 and 128");
 
 
-  var alphabetNumericCharacters = 'abcdefghijklmnopqrstuvwxyz0123456789 '.split('');
-  if (alphabetNumericCharacters.includes(key)) {
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].textContent += event.key;
-    }
 
-    //" !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+var generatePassword = function() { 
 
+  var password = "";
 
-/*
-var tagName = prompt("Please enter an HTML Tag (ex. h1, h2, p, div):", "enter tag");
+  var pwordCriteria = [];
 
-if (tagName !== "h1" && tagName !== "h2" && tagName !== "p" && tagName !== "div") {
-  alert("please enter a valid tag");
-} else {
-  // Creates element based on tag entered by user
-  var tag = document.createElement(tagName);
+  var lowerOptions = ["abcdefghijklmnopqrstuvwxyz".split("")];
 
-  // Adds text content to created tag
-  tag.textContent = "This was made via prompts. It's a " + tagName + ".";
+  var upperOptions = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")];
   
-  // Appends tag as child of document body
-  document.body.appendChild(tag);
+  var numbersOptions = [" 0123456789".split("")];
+  
+  var specialChar = [" !#$%&'()*+,-./:;<=>?@[]^_`{|}~".split("")];
+  
+  console.log(specialChar);
+  console.log(lowerOptions);
+  console.log(upperOptions);
+  console.log(numbersOptions);
+  
+
+var userLength = prompt("How many characters would you like?", "Enter a number between 8 and 128");
+
+if (!userLength) {
+  return;
 }
+  else if (
+  (userLength<8 && userLength>128) 
+) {console.log(userLength);
+  alert("Number must be between 8 and 128.  To try again, select 'Ok' and re-select the 'Generate Password' button");
+    return;
+}
+  else {
+  console.log(userLength);
+  alert("Your password is set to " + userLength + " characters.  Next, please select at least ONE of the four available character types.");
+  var lowercase = confirm("Include lowercase?");
+  var uppercase = confirm("Include uppercase?");
+  var numbers = confirm("Include numbers?");
+  var specialChar = confirm("Include Special Characters?");}
 
-var nextTag = confirm("Would you like to add another tag?");
+  console.log(lowercase);
+  console.log(uppercase);
+  console.log(numbers);
+  console.log(specialChar);
 
-if (nextTag === true) {
-  var secondTagName = prompt("Please enter another  HTML Tag (ex. h1, h2, p, div):", "enter tag here");
-  if(secondTagName !== "h1" && secondTagName !== "h2" && secondTagName !== "p" && secondTagName !== "div") {
-    alert("please enter a valid tag");
-  } else {
-    var secondTag = document.createElement(secondTagName);
-    secondTag.textContent = "This is our second tag via prompts, it's a " + secondTagName + ".";
-    document.body.appendChild(secondTag);
-  
-
-    // Keydown event
-textAreaEl.addEventListener('keydown', function (event) {
-  // Access value of pressed key with key property
- var key = event.key.toLowerCa se();
-  var alphabetNumericCharacters = 'abcdefghijklmnopqrstuvwxyz0123456789 '.split('');
-  if (alphabetNumericCharacters.includes(key)) {
-    for (var i = 0; i < elements.length; i++) {
-      elements[i].textContent += event.key;
-    }
+if (
+    (!lowercase && !uppercase && !numbers && !specialChar) 
+ ) {
+    alert("Sorry, we are unable to generate your password at this time.  At least ONE charater type must be selected. To try again, select 'Ok' and re-select the 'Generate Password' button");
   }
-});
-
-clearEl.addEventListener('click', function (event) {
-  event.preventDefault();
-  textAreaEl.value = '';
-
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].textContent = '';
+  if (lowercase) {
+    pwordCriteria.push(lowerOptions);
   }
-});
-*/
+  if (uppercase) {
+    pwordCriteria.push(upperOptions);
+  }
+  if (numbers) {
+    pwordCriteria.push(numbersOptions);
+  }
+  console.log(pwordCriteria);
+
+  for (var i = 0; i < userLength; i++) {
+    var randomPword = Math.floor(Math.random() * pwordCriteria.length);
+password += pwordCriteria.substring(randomNumber, randomNumber +1);
+  }
+
+}
