@@ -17,24 +17,21 @@ generateBtn.addEventListener("click", writePassword);
 
 var generatePassword = function() { 
 
-  var password = "";
 
-  var pwordCriteria = [];
 
-  var lowerOptions = ["abcdefghijklmnopqrstuvwxyz".split("")];
 
-  var upperOptions = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")];
-  
-  var numbersOptions = [" 0123456789".split("")];
-  
-  var specialChar = [" !#$%&'()*+,-./:;<=>?@[]^_`{|}~".split("")];
-  
-  console.log(specialChar);
-  console.log(lowerOptions);
-  console.log(upperOptions);
-  console.log(numbersOptions);
-  
+  var lcRange = ["abcdefghijklmnopqrstuvwxyz".split("")];
 
+  var ucRange = ["ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")];
+  
+  var numberRange = [" 0123456789".split("")];
+  
+  var specialRange = [" !#$%&'()*+,-./:;<=>?@[]^_`{|}~".split("")];
+
+  var pwCriteria = lcRange.concat(ucRange).concat(numberRange).concat(specialRange);
+
+  console.log(pwCriteria);
+    
 var userLength = prompt("How many characters would you like?", "Enter a number between 8 and 128");
 
 if (!userLength) {
@@ -44,6 +41,7 @@ if (!userLength) {
   (userLength<8 || userLength>128) 
 ) {console.log(userLength);
   alert("Number must be between 8 and 128.  To try again, select 'Ok' and re-select the 'Generate Password' button");
+  return;
   
 } else if (
   (!userLength)
@@ -53,35 +51,29 @@ if (!userLength) {
   } else {
   console.log(userLength);
   alert("Your password is set to " + userLength + " characters.  Next, please select at least ONE of the four available character types.");
-  var lowercase = confirm("Include lowercase?");
-  var uppercase = confirm("Include uppercase?");
-  var numbers = confirm("Include numbers?");
-  var specialChar = confirm("Include Special Characters?");}
-
-  console.log(lowercase);
-  console.log(uppercase);
-  console.log(numbers);
-  console.log(specialChar);
+  var lc = confirm("Include lowercase?");
+  var uc = confirm("Include uppercase?");
+  var number = confirm("Include numbers?");
+  var special = confirm("Include Special Characters?");}
 
 if (
-    (!lowercase && !uppercase && !numbers && !specialChar) 
+    (!lc && !uc && !number && !special) 
  ) {
     alert("Sorry, we are unable to generate your password:  At least ONE charater type must be selected. To try again, select 'Ok' and re-select the 'Generate Password' button.");
   }
-  if (lowercase) {
-    pwordCriteria.push(lowerOptions);
-  }
+if (lc) {
+    var index =  Math.floor(Math.random() * lcRange.length);
+    console.log(ucRange.length);
+    var fixedlc = lcRange[index];
+}
+    alert("did it work? " + fixedlc);
+}
   if (uppercase) {
     pwordCriteria.push(upperOptions);
-  }
-  if (numbers) {
-    pwordCriteria.push(numbersOptions);
-  }
-  console.log(pwordCriteria);
-
-  for (var i = 0; i < userLength; i++) {
-    var randomPword = Math.floor(Math.random() * pwordCriteria.length);
-password += pwordCriteria.substring(randomNumber, randomNumber +1);
-  }
+  // }
+  // if (numbers) {
+  //   pwordCriteria.push(numbersOptions);
+  // }
+  // console.log(pwordCriteria);
 
 }
