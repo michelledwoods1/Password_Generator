@@ -77,9 +77,13 @@ var generatePassword = function() {
   newPassword = ""
   
   //get random indicies from the selected charcters array
-  for (var i = 0; i <passwordTotal.length; i++) {
-  var index = Math.floor(Math.random() * selectedChars.length);
-  var random = selectedChars.charAt(index);
+
+  for (var i = 0; i < passwordTotal; i++) {
+    var index = Math.floor(Math.random() * selectedChars.length);
+    newPassword = selectedChars[index];
+  // for (var i = 0; i <passwordTotal.length; i++) {
+  // var index = Math.floor(Math.random() * selectedChars.length);
+  // var random = selectedChars.charAt(index);
   }
   return newPassword;
   // return "password 123"
