@@ -57,12 +57,12 @@ var generatePassword = function() {
   var specialCharsRange = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~".split("");
 
 
-  // create variabale to count the number of selected character types
-  var forcedChars = 0
-
-
   // create array to store selected character types
   var selectedChars = []
+
+
+  // create variabale to count the number of selected character types
+  var forcedChars = 0
 
 
   //create variable to store the new password characters
@@ -105,12 +105,6 @@ var generatePassword = function() {
     newPassword += forceSpecial;
   }
 
-
-  console.log(forcedChars);
-  console.log(newPassword);
-  console.log(selectedChars);
-
-
   //get remaining number of password characters as random indicies from all selected characters
 
   for (var i = forcedChars; i < passwordTotal; i++) {
@@ -119,12 +113,10 @@ var generatePassword = function() {
   }
 
 
-  console.log(newPassword);
-
-  return newPassword;
+  return "Your new password is : \n  \n" + newPassword;
 
 
-  }
+}
 
 
   
